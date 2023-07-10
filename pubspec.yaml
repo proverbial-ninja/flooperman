@@ -17,6 +17,12 @@ dependencies:
   just_audio: ^0.9.34
   get: ^4.6.5
   sticky_footer_scrollview: ^1.1.1
+  easy_search_bar: ^2.5.0
+  get_storage: ^2.1.1
+  flutter_download_manager: ^0.5.5
+  dart_tags: ^0.4.0
+  flutter_native_drag_n_drop: ^1.2.4
+  super_drag_and_drop: ^0.4.0
 
 dev_dependencies:
   flutter_test:

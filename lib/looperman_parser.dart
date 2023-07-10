@@ -1,4 +1,5 @@
 import 'package:flooperman/Loop.dart';
+import 'package:flooperman/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
 
@@ -16,12 +17,18 @@ class LoopermanParser {
 
       // Process each loop element
       for (var loopElement in loopElements) {
-        final loopUrl = loopElement.attributes['rel'] ?? '';
+        var loopUrl = loopElement.attributes['rel'] ?? '';
+        var loopUri = Uri.parse(loopUrl);
+        loopUri = Utility().removeQueryParameters(loopUri);
         final loopName = loopElement.querySelector('.player-title')?.text ?? '';
         final loopAuthor =
             loopElement.querySelector('.loop-author')?.text ?? '';
 
-        list.add(Loop(title: loopName, mp3Url: loopUrl));
+        list.add(Loop(
+            title: loopName,
+            mp3Url: loopUri
+                .toString()
+                .substring(0, loopUri.toString().length - 1)));
         // print('Loop Name: $loopName');
         // print('Loop URL: $loopUrl');
         // print('Loop Author: $loopAuthor');

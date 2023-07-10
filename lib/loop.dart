@@ -10,8 +10,13 @@ class Loop {
   late LoopGenre genre;
   late String fileName;
   late String mp3Url;
+  var dataBin;
 
-  Loop({required this.title, required this.mp3Url});
+  Loop(
+      {required this.title,
+      required this.mp3Url,
+      this.fileName = "/",
+      this.dataBin = "no"});
 }
 
 class LoopCategory {
