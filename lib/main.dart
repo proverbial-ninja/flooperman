@@ -249,6 +249,15 @@ class _MainAppState extends State<MainApp> {
     //var savepath =
     //  "/Volumes/Mac SSD/Users/kiki/Music/Downloads/looperman-l-2679281-0336237-lead-virtual-chords-slowkeith.mp3";
     await task?.whenDownloadComplete();
+    Get.snackbar(
+      "Downloads",
+      "Download complete, Click here to see..",
+      onTap: (snack) {
+        Get.to(DownloadScreen());
+      },
+      backgroundColor: Colors.white,
+      icon: const Icon(Icons.download_done_rounded),
+    );
     print("done");
     var duration = const Duration(seconds: 5);
 
@@ -259,10 +268,13 @@ class _MainAppState extends State<MainApp> {
 // ignore: prefer_const_constructors
 
     final bytes = await Utility().readFileByte(savepath);
-    var wurl = WURL("001", dl_url);
     final com1 = Comment('eng', 'dl_url', dl_url);
     final tag = Tag()
-      ..tags = {'comment': com1, 'title': loopList[index].title}
+      ..tags = {
+        'comment': com1,
+        'bpm': '96',
+        'title': loopList[index].title,
+      }
       ..type = 'ID3'
       ..version = '2.4';
     final writer = ID3V2Writer();
