@@ -59,7 +59,7 @@ class _DownloadScreenState extends State<DownloadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("data")),
+      appBar: AppBar(title: Text("Downloads")),
       body: _isloaded
           ? ListView.builder(
               itemBuilder: (context, index) {
