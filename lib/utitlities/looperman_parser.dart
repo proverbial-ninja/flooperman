@@ -1,7 +1,8 @@
-import 'package:flooperman/Loop.dart';
-import 'package:flooperman/utils.dart';
+import 'package:flooperman/utitlities/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
+
+import '../objects/loop.dart';
 
 class LoopermanParser {
   Future<List<Loop>> home({url: "https://www.looperman.com/loops"}) async {
