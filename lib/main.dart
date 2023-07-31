@@ -7,32 +7,51 @@ Future<void> main() async {
   runApp(const MainApp());
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
-  // late List<Loop> loopList;
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
           appBar: AppBar(
-            title: Text('Flooperman 0.2.0'),
+            title: const Text('Flooperman 0.2.0'),
             backgroundColor: Colors.green[400],
+            bottom: const TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.loop),
+                  text: "Loop",
+                ),
+                Tab(
+                  icon: Icon(Icons.download),
+                  text: "Downloads",
+                ),
+                Tab(
+                  icon: Icon(Icons.favorite),
+                  text: "Favourites",
+                )
+              ],
+            ),
           ),
-          body: const Center(
-            child: CircularProgressIndicator(),
-          )),
+          body: const TabBarView(
+            children: [
+              Center(
+                child: Text("Chats"),
+              ),
+              Center(
+                child: Text("Calls"),
+              ),
+              Center(
+                child: Text("Settings"),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
