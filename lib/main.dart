@@ -50,6 +50,33 @@ class MainApp extends StatelessWidget {
               ),
             ],
           ),
+          floatingActionButton:
+              FloatingActionButton(onPressed: () {}, child: Icon(Icons.search)),
+          persistentFooterButtons: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Loop Name Labda ni refu sana"),
+                      const Icon(Icons.download_rounded),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.play_arrow_outlined)),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
